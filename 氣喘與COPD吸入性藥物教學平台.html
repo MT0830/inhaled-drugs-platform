@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asthma 與 COPD 常見吸入性藥物介紹</title>
+  <style>
+    :root {
+      --bg: #EBE8D5;
+      --card: #f8f6ea;
+      --text: #1f2937;
+      --sub: #4b5563;
+      --primary: #517551;
+      --line: #c9c4a8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Noto Sans TC", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 20px 40px;
+    }
+    .hero {
+      background: #517551;
+      color: #fff;
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: 1.8rem;
+    }
+    .hero p {
+      margin: 0;
+      opacity: 0.95;
+    }
+    .hero p a {
+      color: #ffffff;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      margin: 0 4px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+    h2 {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-size: 1.3rem;
+    }
+    .subnote {
+      color: var(--sub);
+      margin: 0 0 12px;
+      font-size: 0.95rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+      font-size: 0.95rem;
+    }
+    th {
+      background: #dce8d1;
+      color: #3f5f3f;
+    }
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #dce8d1;
+      color: #517551;
+      font-size: 0.8rem;
+      margin-right: 6px;
+      margin-bottom: 6px;
+    }
+    ul {
+      margin: 8px 0 0 20px;
+      padding: 0;
+    }
+    li { margin-bottom: 6px; }
+    .foot {
+      color: var(--sub);
+      font-size: 0.9rem;
+    }
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 8px 0 14px;
+    }
+    .tab-btn, .inhaler-tab-btn {
+      border: 1px solid #84AA84;
+      background: #eef4e7;
+      color: #517551;
+      border-radius: 999px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .tab-btn.active, .inhaler-tab-btn.active {
+      background: #517551;
+      color: #ffffff;
+      border-color: #517551;
+    }
+    .tab-panel {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px 14px;
+      background: #f3f0df;
+    }
+    .tab-panel h3 {
+      margin: 0 0 8px;
+      color: #517551;
+      font-size: 1.05rem;
+    }
+    .tab-panel p {
+      margin: 6px 0;
+      text-indent: 1em;
+    }
+    .tab-panel p.panel-subtitle {
+      text-indent: 0;
+      margin: 12px 0 4px;
+      font-size: 1rem;
+      color: #517551;
+      font-weight: 700;
+    }
+    .tab-panel ul {
+      text-indent: 1em;
+    }
+    .tab-panel ul li {
+      text-indent: 0;
+    }
+    .med-table {
+      table-layout: fixed;
+      width: 100%;
+    }
+    .med-table th:nth-child(1),
+    .med-table td:nth-child(1) {
+      width: 18%;
+    }
+    .med-table th:nth-child(2),
+    .med-table td:nth-child(2) {
+      width: 82%;
+    }
+    .med-table th {
+      vertical-align: middle;
+    }
+    .med-table td:first-child {
+      vertical-align: middle;
+      font-weight: 600;
+      color: #3f5f3f;
+    }
+    .med-table td:nth-child(2) {
+      vertical-align: top;
+    }
+    .atlas-cell-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+      min-width: 0;
+    }
+    .flip-card {
+      perspective: 1000px;
+      min-height: 218px;
+      height: 100%;
+      cursor: pointer;
+      width: 100%;
+    }
+    .flip-card:focus {
+      outline: 2px solid #517551;
+      outline-offset: 3px;
+    }
+    .flip-inner {
+      position: relative;
+      width: 100%;
+      min-height: 218px;
+      height: 100%;
+      transition: transform 0.55s ease;
+      transform-style: preserve-3d;
+    }
+    .flip-card.is-flipped .flip-inner,
+    .flip-card[aria-pressed="true"] .flip-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-front,
+    .flip-back {
+      position: absolute;
+      inset: 0;
+      border-radius: 10px;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 8px;
+      background: #f8f6ea;
+    }
+    .flip-front {
+      justify-content: center;
+      gap: 6px;
+    }
+    .flip-back {
+      transform: rotateY(180deg);
+      justify-content: center;
+      text-align: center;
+      padding: 8px;
+      overflow-y: auto;
+    }
+    .flip-front .img-wrap {
+      width: 100%;
+      height: 118px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0;
+    }
+    .flip-front .img-wrap img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+    .flip-front .trade-caption {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      font-size: 0.82rem;
+      text-align: center;
+      color: var(--primary);
+      line-height: 1.3;
+    }
+    .flip-front .trade-caption .trade-line {
+      display: block;
+      max-width: 100%;
+    }
+    .flip-front .trade-caption .trade-en {
+      font-weight: 700;
+    }
+    .flip-front .trade-caption .trade-zh {
+      font-weight: 600;
+      font-size: 0.78rem;
+    }
+    .flip-front .ultra-laba-badge {
+      display: inline-block;
+      margin-top: 4px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: #2a452a;
+      background: linear-gradient(180deg, #e8f0df 0%, #dce8d1 100%);
+      border: 1px solid #84aa84;
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.65) inset;
+    }
+    .flip-back .flip-back-generic {
+      margin: 0;
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.45;
+      text-align: center;
+      word-break: break-word;
+    }
+    .flip-back .flip-back-generic strong {
+      font-weight: 700;
+    }
+    .flip-back .flip-back-pil {
+      margin: 8px 0 0;
+      font-size: 0.74rem;
+      text-align: center;
+      color: var(--sub);
+    }
+    .flip-back .flip-back-pil a {
+      color: #517551;
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .quiz-btn {
+      border: 1px solid #84AA84;
+      background: #eef4e7;
+      color: #517551;
+      border-radius: 999px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .quiz-btn.primary {
+      background: #517551;
+      color: #ffffff;
+      border-color: #517551;
+    }
+    .quiz-item {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #f3f0df;
+      padding: 12px;
+      margin-bottom: 10px;
+    }
+    .quiz-item p {
+      margin: 0 0 8px;
+      font-weight: 600;
+      color: #3f5f3f;
+    }
+    .quiz-options label {
+      display: block;
+      margin: 4px 0;
+      font-weight: 400;
+      color: var(--text);
+      cursor: pointer;
+    }
+    .quiz-result {
+      margin-top: 10px;
+      color: #3f5f3f;
+      font-weight: 700;
+    }
+    .quiz-feedback {
+      margin-top: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+    .quiz-feedback.correct {
+      color: #1f7a1f;
+    }
+    .quiz-feedback.incorrect {
+      color: #a33a2a;
+    }
+    .quiz-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    #quiz-intro {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    #quiz-intro .subnote {
+      margin: 0;
+    }
+    #quiz-intro[hidden],
+    #quiz-runner[hidden] {
+      display: none;
+    }
+    #quiz-form {
+      margin-top: 14px;
+    }
+    .sim-case {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #f3f0df;
+      padding: 12px;
+      margin: 8px 0 12px;
+    }
+    .sim-case p {
+      margin: 4px 0;
+    }
+    .sim-options label {
+      display: block;
+      margin: 6px 0;
+      padding: 6px 8px;
+      border-radius: 8px;
+      background: #f8f6ea;
+      border: 1px solid #e0dbc0;
+      cursor: pointer;
+    }
+    .sim-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .sim-feedback {
+      margin-top: 10px;
+      font-size: 0.94rem;
+      color: #3f5f3f;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>Asthma 與 COPD 常見吸入性藥物介紹</h1>
+      <p>目錄：<a href="#section-highlights">藥物重點</a>｜<a href="#section-types-atlas">藥物種類</a>｜<a href="#section-inhalers">吸入器介紹</a>｜<a href="#section-simulation">實境模擬</a>｜<a href="#section-quiz">即時測驗</a>｜<a href="#section-references">參考文獻</a></p>
+    </section>
+
+    <section class="card" id="section-highlights">
+      <h2>藥物重點</h2>
+      <span class="tag">Short-Acting → 緩解型</span>
+      <span class="tag">Long-Acting → 控制型</span>
+      <div class="tabs" role="tablist" aria-label="藥物重點分類">
+        <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="panel-saba" data-tab="saba">SABA</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-sama" data-tab="sama">SAMA</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-laba" data-tab="laba">LABA</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-lama" data-tab="lama">LAMA</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-ics" data-tab="ics">ICS</button>
+      </div>
+
+      <div id="panel-saba" class="tab-panel" role="tabpanel">
+        <h3>SABA（Short-Acting Beta2-Agonists，短效乙二型交感神經刺激劑）</h3>
+        <ul>
+          <li><strong>作用機轉：</strong>刺激 beta2-adrenergic receptors，增加 cyclic AMP，放鬆氣道平滑肌並緩解支氣管收縮。</li>
+          <li><strong>藥效時長：</strong>起效快（通常 &lt; 5 分鐘），藥效可維持約 4-6 小時。</li>
+          <li><strong>常見藥物：</strong>Salbutamol / Albuterol、Fenoterol、Terbutaline。</li>
+          <li><strong>副作用：</strong>手部震顫、心悸或心搏過速、低血鉀（高劑量時更為明顯）。</li>
+          <li><strong>注意事項：</strong>氣喘若僅使用 SABA 而未搭配 ICS-containing 治療，會提高嚴重急性發作與氣喘相關死亡的風險。</li>
+        </ul>
+      </div>
+      <div id="panel-sama" class="tab-panel" role="tabpanel" hidden>
+        <h3>SAMA（Short-Acting Muscarinic Antagonists，短效抗膽鹼藥物）</h3>
+        <ul>
+          <li><strong>作用機轉：</strong>阻斷氣道上的 M3 muscarinic receptors，降低乙醯膽鹼引發的支氣管收縮。</li>
+          <li><strong>藥效時長：</strong>通常維持約 6-8 小時（部分可達 7-9 小時）。</li>
+          <li><strong>常見藥物：</strong>Ipratropium。</li>
+          <li><strong>副作用：</strong>口乾、視力模糊、頭暈；若藥霧進入眼睛，可能誘發青光眼惡化。</li>
+          <li><strong>注意事項：</strong>氣喘急性惡化時常與 SABA 併用，但不建議作為氣喘的長期單一控制藥；於 COPD 則可單獨或合併使用。</li>
+        </ul>
+      </div>
+      <div id="panel-laba" class="tab-panel" role="tabpanel" hidden>
+        <h3>LABA（Long-Acting Beta2-Agonists，長效乙二型交感神經刺激劑）</h3>
+        <ul>
+          <li><strong>作用機轉：</strong>活化 beta2 受體，提供比 SABA 更持久且穩定的支氣管擴張作用。</li>
+          <li><strong>藥效時長：</strong>多為 12 小時以上；部分 Ultra-LABA 可達 24 小時。</li>
+          <li><strong>常見藥物：</strong>Salmeterol、Formoterol、Indacaterol、Olodaterol、Vilanterol。</li>
+          <li><strong>副作用：</strong>頭痛、顫抖、心悸、低血鉀；少數可見心律不整。</li>
+          <li><strong>注意事項：</strong>氣喘不可單獨使用 LABA，應與 ICS-containing 治療合併；LABA 並非急性發作的首選緩解用藥。</li>
+        </ul>
+      </div>
+      <div id="panel-lama" class="tab-panel" role="tabpanel" hidden>
+        <h3>LAMA（Long-Acting Muscarinic Antagonists，長效抗膽鹼藥物）</h3>
+        <ul>
+          <li><strong>作用機轉：</strong>長時間阻斷 M3 muscarinic receptors，延長支氣管擴張效果。</li>
+          <li><strong>藥效時長：</strong>多數可維持 12-24 小時，適合作為長期維持治療。</li>
+          <li><strong>常見藥物：</strong>Tiotropium、Glycopyrronium、Umeclidinium。</li>
+          <li><strong>副作用：</strong>口乾、便祕、排尿困難或尿滯留、心悸；藥物若接觸眼部，可能誘發青光眼惡化。</li>
+          <li><strong>注意事項：</strong>氣喘通常作為 ICS（多為 ICS/LABA）基礎上的加成治療；COPD 則可單用或合併其他支氣管擴張劑。</li>
+        </ul>
+      </div>
+      <div id="panel-ics" class="tab-panel" role="tabpanel" hidden>
+        <h3>ICS（Inhaled Corticosteroids，吸入型類固醇）</h3>
+        <ul>
+          <li><strong>作用機轉：</strong>結合細胞內 NR3C1 受體，透過 transactivation / transrepression 抑制氣道發炎。</li>
+          <li><strong>藥效時長：</strong>臨床起效約需 4-6 小時；單次劑量作用可延續至約 24 小時。</li>
+          <li><strong>常見藥物：</strong>Budesonide、Fluticasone propionate、Fluticasone furoate、Ciclesonide、Beclometasone、Mometasone。</li>
+          <li><strong>副作用：</strong>口咽念珠菌感染（鵝口瘡）與聲音沙啞；高劑量或長期使用可能出現骨質流失、白內障或青光眼、皮膚瘀青與腎上腺抑制。</li>
+          <li><strong>注意事項：</strong>使用後務必漱口並吐掉，以最低有效劑量維持並定期評估風險。COPD 使用 ICS 會增加肺炎風險，高劑量時結核（TB）或其他分枝桿菌感染風險亦會上升。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card" id="section-types-atlas">
+      <h2>藥物種類</h2>
+      <p class="subnote">圖卡可點擊翻面，正面為中英文商品名、背面為藥品學名與仿單連結；同一商品可能對應多種吸入器類型，圖片僅供參考。</p>
+      <table class="med-table">
+        <thead>
+          <tr>
+            <th>藥物組合</th>
+            <th>常見藥物</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>SABA</td>
+            <td><div class="atlas-cell-grid" data-atlas-row="SABA"></div></td>
+          </tr>
+          <tr>
+            <td>SAMA</td>
+            <td><div class="atlas-cell-grid" data-atlas-row="SAMA"></div></td>
+          </tr>
+          <tr>
+            <td>LABA</td>
+            <td><div class="atlas-cell-grid" data-atlas-row="LABA"></div></td>
+          </tr>
+          <tr>
+            <td>LAMA</td>
+            <td><div class="atlas-cell-grid" data-atlas-row="LAMA"></div></td>
+          </tr>
+          <tr>
+            <td>ICS</td>
+            <td><div class="atlas-cell-grid" data-atlas-row="ICS"></div></td>
+          </tr>
+          <tr>
+            <td>SABA + SAMA</td>
+            <td><div class="atlas-cell-grid" data-atlas-row="SABA + SAMA"></div></td>
+          </tr>
+          <tr>
+            <td>LABA + LAMA</td>
+            <td><div class="atlas-cell-grid" data-atlas-row="LABA + LAMA"></div></td>
+          </tr>
+          <tr>
+            <td>LABA + ICS</td>
+            <td><div class="atlas-cell-grid" data-atlas-row="LABA + ICS"></div></td>
+          </tr>
+          <tr>
+            <td>LABA + LAMA + ICS</td>
+            <td><div class="atlas-cell-grid" data-atlas-row="LABA + LAMA + ICS"></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card" id="section-inhalers">
+      <h2>吸入器介紹</h2>
+      <div class="tabs" role="tablist" aria-label="吸入器類別">
+        <button class="inhaler-tab-btn active" role="tab" aria-selected="true" aria-controls="panel-pmdi" data-inhaler-tab="pmdi">MDI</button>
+        <button class="inhaler-tab-btn" role="tab" aria-selected="false" aria-controls="panel-dpi" data-inhaler-tab="dpi">DPI</button>
+        <button class="inhaler-tab-btn" role="tab" aria-selected="false" aria-controls="panel-smi" data-inhaler-tab="smi">SMI</button>
+        <button class="inhaler-tab-btn" role="tab" aria-selected="false" aria-controls="panel-neb" data-inhaler-tab="neb">Nebulizer</button>
+      </div>
+      <div id="panel-pmdi" class="tab-panel" role="tabpanel">
+        <h3>定量噴霧吸入器（MDI）</h3>
+        <p class="panel-subtitle">使用步驟</p>
+        <p>1. <strong>準備與搖晃：</strong>打開帽蓋並直立持握吸入器；使用前回溫，並搖晃 3-5 秒使藥物分散均勻。</p>
+        <p>2. <strong>先吐氣：</strong>避開吸嘴，先緩慢吐氣至接近吐盡。</p>
+        <p>3. <strong>含住吸嘴：</strong>雙唇緊密包覆吸嘴，但勿用牙齒咬住。</p>
+        <p>4. <strong>同步按壓與慢深吸：</strong>開始吸氣的同時按壓 1 次，持續<strong>慢而深吸</strong>到吸飽為止。</p>
+        <p>5. <strong>閉氣與吐氣：</strong>移開吸入器後<strong>閉氣約 10 秒</strong>，再緩慢吐氣。</p>
+        <p>6. <strong>需用 Spacer 時：</strong>將 MDI 接上 Spacer，按壓 1 劑後採「正常呼吸 5-10 次」或「單次深吸後<strong>閉氣約 10 秒</strong>」。</p>
+
+        <p class="panel-subtitle">注意事項</p>
+        <p>1. <strong>多劑量間隔：</strong>若需第 2 劑，請間隔 30-60 秒後再重複一次完整步驟。</p>
+        <p>2. <strong>協調性檢查：</strong>若按壓時可見藥霧自口中漏出，代表協調不佳，建議改用 Spacer。</p>
+        <p>3. <strong>含 ICS 後漱口：</strong>使用含吸入型類固醇的製劑後，務必漱口並吐掉，以降低局部副作用。</p>
+        <p>4. <strong>器材保養：</strong>MDI 外殼應定期擦拭、隨手蓋帽，並避光乾燥保存；塑膠 Spacer 清潔後不沖水、自然風乾，以減少靜電累積。</p>
+
+        <p class="panel-subtitle">操作影片</p>
+        <p><a href="https://www.youtube.com/watch?v=iAp9EglX8go" target="_blank" rel="noopener noreferrer">MDI 操作影片</a></p>
+        <p><a href="https://www.youtube.com/watch?v=B26yHhKoiQQ" target="_blank" rel="noopener noreferrer">Spacer 操作影片</a></p>
+      </div>
+      <div id="panel-dpi" class="tab-panel" role="tabpanel" hidden>
+        <h3>乾粉吸入器（DPI）</h3>
+        <p class="panel-subtitle">使用步驟</p>
+        <p>1. <strong>打開與裝填：</strong>依裝置型式完成單次劑量準備（推桿、旋轉底座，或將膠囊放入後刺破）。</p>
+        <p>2. <strong>先吐氣：</strong>避開吸嘴，先緩慢深吐氣至接近吐盡。</p>
+        <p>3. <strong>含住吸嘴：</strong>雙唇緊密包覆吸嘴。</p>
+        <p>4. <strong>用力且深長吸氣：</strong>DPI 為吸氣啟動裝置，需<strong>用力且深吸</strong>，才能有效將藥粉帶入下呼吸道。</p>
+        <p>5. <strong>閉氣與吐氣：</strong>吸飽氣後移開吸入器，<strong>閉氣約 10 秒</strong>，再緩慢吐氣。</p>
+        <p>6. <strong>需要時重複：</strong>若處方需第 2 劑，或膠囊仍可見殘粉，請重複以上步驟。</p>
+
+        <p class="panel-subtitle">注意事項</p>
+        <p>1. <strong>裝置種類差異：</strong>常見有多劑量型（如 Turbuhaler、Accuhaler、Ellipta）與單劑量膠囊型（如 Breezhaler），請依各裝置指示操作。</p>
+        <p>2. <strong>評估吸氣流速：</strong>若病人無法用力深吸（如高齡、虛弱或急性發作時），可考慮改用 MDI + Spacer 或 SMI。</p>
+        <p>3. <strong>避免對著吸嘴吐氣：</strong>藥粉容易受潮結塊，吐氣請務必避開吸嘴。</p>
+        <p>4. <strong>保存與漱口：</strong>平時應蓋緊帽蓋、置於陰涼乾燥處保存；含 ICS 的製劑使用後請務必漱口並吐掉。</p>
+
+        <p class="panel-subtitle">操作影片</p>
+        <p><a href="https://youtu.be/yAgaI0A0kBY?si=uc4wE702eANeCc1m" target="_blank" rel="noopener noreferrer">多劑量型 DPI 操作影片</a></p>
+        <p><a href="https://youtu.be/qNn5e-2vOws?si=Bt8kuGq8lZYsvByU" target="_blank" rel="noopener noreferrer">單劑量膠囊型 DPI 操作影片</a></p>
+      </div>
+      <div id="panel-smi" class="tab-panel" role="tabpanel" hidden>
+        <h3>軟霧吸入器（SMI）</h3>
+        <p class="panel-subtitle">使用步驟</p>
+        <p>1. <strong>首次裝填準備：</strong>新機請先完成藥瓶裝填（拔底座、裝入藥瓶、裝回底座）與導藥測試。</p>
+        <p>2. <strong>導藥測試：</strong>依「轉、開、按」重複操作，直到看見白霧後再執行 3 次，才算完成首次準備。</p>
+        <p>3. <strong>日常口訣 T.O.P.：</strong><strong>轉（Turn）</strong>底座半圈至喀聲、<strong>開（Open）</strong>帽蓋、<strong>按（Press）</strong>鍵的同時慢而深吸。</p>
+        <p>4. <strong>吸入動作：</strong>吸嘴含入口後雙唇緊密包覆，並避免遮住兩側通氣孔；按鍵的同時<strong>慢而深吸</strong>到吸飽為止。</p>
+        <p>5. <strong>閉氣與吐氣：</strong>移開吸入器後<strong>閉氣約 10 秒</strong>，再避開吸入器緩慢吐氣。</p>
+        <p>6. <strong>需要時重複：</strong>若處方需第 2 劑，請再重複一次 T.O.P. 完整流程。</p>
+
+        <p class="panel-subtitle">注意事項</p>
+        <p>1. <strong>不可對吸入器吐氣：</strong>吐氣請務必避開吸嘴，以免影響裝置效能。</p>
+        <p>2. <strong>日常給藥不需搖晃：</strong>SMI 與 MDI 不同，平時給藥前無須搖晃。</p>
+        <p>3. <strong>定期清潔：</strong>每週至少 1 次，以微濕布或衛生紙清潔吸嘴與內部金屬區。</p>
+        <p>4. <strong>妥善保存：</strong>不使用時請蓋緊帽蓋，並置於陰涼乾燥處，避免陽光直射。</p>
+
+        <p class="panel-subtitle">操作影片</p>
+        <p><a href="https://youtu.be/F87ZHHMfFow?si=k65fLHQp71oWdvX-" target="_blank" rel="noopener noreferrer">SMI 操作影片</a></p>
+      </div>
+      <div id="panel-neb" class="tab-panel" role="tabpanel" hidden>
+        <h3>噴霧治療（Nebulizer / SVN）</h3>
+        <p class="panel-subtitle">使用步驟</p>
+        <p>1. <strong>準備藥液：</strong>將處方液態藥物（必要時併用食鹽水）注入噴霧器藥槽，理想液量為 <strong>4-5 mL</strong>。</p>
+        <p>2. <strong>設定驅動氣流：</strong>接上氣體管路，將氣流速率設為 <strong>6-10 L/min</strong>。</p>
+        <p>3. <strong>選擇介面：</strong>依病人狀況選用<strong>面罩或咬嘴</strong>；正在使用呼吸器者，請將噴霧器接於管路<strong>吸氣端（藍端）</strong>。</p>
+        <p>4. <strong>進行吸入：</strong>請病人維持<strong>平穩呼吸</strong>，持續吸入霧氣；霧化通常需數分鐘，整體給藥時間較一般手持吸入器久。</p>
+
+        <p class="panel-subtitle">注意事項</p>
+        <p>1. <strong>驅動氣體選擇：</strong>COPD 急性惡化者優先以<strong>空氣驅動</strong>，以避免氧氣驅動造成 PaCO₂ 升高；若病人血氧明顯偏低，則改以<strong>氧氣驅動</strong>。</p>
+        <p>2. <strong>臉部防護與清潔：</strong>使用 ICS 時建議搭配<strong>咬嘴</strong>，以避免藥霧噴入眼睛；若僅能使用面罩，療程結束後須清潔病人<strong>口鼻周邊的皮膚</strong>。</p>
+        <p>3. <strong>飛沫與感染管制：</strong>過程會將呼吸道病毒微粒散佈至 <strong>≥ 1 公尺</strong>以外；呼吸道傳染病流行期間應避免使用，並遵守<strong>感染管制防護</strong>程序。</p>
+        <p>4. <strong>適用對象：</strong>幼童僅作為<strong>無法有效使用 Spacer</strong> 時的替代方案；急性氣喘亦主要保留給急症照護中<strong>面臨生命危險</strong>的患者。</p>
+      </div>
+    </section>
+
+    <section class="card" id="section-simulation">
+      <h2>實境模擬</h2>
+      <div class="sim-case" id="sim-case"></div>
+      <form id="sim-form" class="sim-options"></form>
+      <div class="sim-actions">
+        <button type="button" class="quiz-btn primary" id="sim-submit">送出判斷</button>
+        <button type="button" class="quiz-btn" id="sim-next" style="display:none;">下一個</button>
+      </div>
+      <p class="sim-feedback" id="sim-feedback" aria-live="polite"></p>
+    </section>
+
+    <section class="card" id="section-quiz">
+      <h2>即時測驗</h2>
+      <div id="quiz-intro">
+        <p class="subnote">點擊「開始測驗」後將進入專注作答模式，其他章節會暫時隱藏，待作答完成或選擇離開後即恢復原本頁面。</p>
+        <button type="button" class="quiz-btn primary" id="quiz-start">開始測驗</button>
+      </div>
+      <div id="quiz-runner" hidden>
+        <form id="quiz-form"></form>
+        <div class="quiz-actions">
+          <button type="button" class="quiz-btn primary" id="quiz-submit">送出作答</button>
+          <button type="button" class="quiz-btn" id="quiz-exit">離開測驗</button>
+        </div>
+        <p class="quiz-result" id="quiz-result" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="card" id="section-references">
+      <h2>參考文獻</h2>
+      <ol>
+        <li>Raymond, T. J., Peterson, T. A., &amp; Coulter, J. (2023). Chronic asthma treatment: Common questions and answers. <em>American Family Physician, 107</em>(4), 358–368.</li>
+        <li>Global Initiative for Asthma. (2025). <em>Global strategy for asthma management and prevention (2025 update, updated November 2025)</em>. <a href="https://ginasthma.org" target="_blank" rel="noopener noreferrer">https://ginasthma.org</a></li>
+        <li>Global Initiative for Chronic Obstructive Lung Disease. (2026). <em>Global strategy for the diagnosis, management, and prevention of chronic obstructive pulmonary disease (2026 report)</em>. <a href="https://goldcopd.org" target="_blank" rel="noopener noreferrer">https://goldcopd.org</a></li>
+        <li>Anderson, S., Atkins, P., Backman, P., Cipolla, D., Clark, A., Daviskas, E., Disse, B., Entcheva-Dimitrov, P., Fuller, R., Gonda, I., Lundbäck, H., Olsson, B., &amp; Weers, J. (2022). Inhaled medicines: Past, present, and future. <em>Pharmacological Reviews, 74</em>(1), 48–118. <a href="https://doi.org/10.1124/pharmrev.120.000108" target="_blank" rel="noopener noreferrer">https://doi.org/10.1124/pharmrev.120.000108</a></li>
+      </ol>
+    </section>
+  </div>
+  <script>
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    const tabPanels = {
+      saba: document.getElementById("panel-saba"),
+      sama: document.getElementById("panel-sama"),
+      laba: document.getElementById("panel-laba"),
+      lama: document.getElementById("panel-lama"),
+      ics: document.getElementById("panel-ics")
+    };
+
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const target = button.dataset.tab;
+        tabButtons.forEach((btn) => {
+          const isActive = btn === button;
+          btn.classList.toggle("active", isActive);
+          btn.setAttribute("aria-selected", String(isActive));
+        });
+        Object.entries(tabPanels).forEach(([key, panel]) => {
+          panel.hidden = key !== target;
+        });
+      });
+    });
+
+    const inhalerTabButtons = document.querySelectorAll(".inhaler-tab-btn");
+    const inhalerPanels = {
+      pmdi: document.getElementById("panel-pmdi"),
+      dpi: document.getElementById("panel-dpi"),
+      smi: document.getElementById("panel-smi"),
+      neb: document.getElementById("panel-neb")
+    };
+
+    inhalerTabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const target = button.dataset.inhalerTab;
+        inhalerTabButtons.forEach((btn) => {
+          const isActive = btn === button;
+          btn.classList.toggle("active", isActive);
+          btn.setAttribute("aria-selected", String(isActive));
+        });
+        Object.entries(inhalerPanels).forEach(([key, panel]) => {
+          panel.hidden = key !== target;
+        });
+      });
+    });
+
+    const simulationCases = [
+      {
+        prompt:
+          "45 歲女性，國小教師，氣喘病史 2 年，平日工作忙碌，家中還有 2 個孩子需要照顧。近 1 個月來，白天每週感覺胸悶、喘鳴約 2 次，夜間偶爾因自身咳嗽而驚醒，但白天精神尚可，亦無近期住院紀錄；認知正常、手部協調佳、吸氣流速足夠。回診時，她明白地告訴醫師：「我只想要一支發作時噴一下就會緩解的藥備用，平時太忙，不想每天規律用藥。」",
+        options: [
+          "僅按需 SABA，平時不需任何 ICS-containing 治療",
+          "規律或按需低劑量 ICS-formoterol，作為首選緩解與風險控制",
+          "直接給予高劑量 ICS/LABA + LAMA 三合一吸入器",
+          "不開任何藥物，請她症狀加劇時再就醫"
+        ],
+        answer: 1,
+        advice:
+          "現行 GINA 不建議任何氣喘等級採用「僅用 SABA」的處置；即便是輕度症狀，也應採用 ICS-containing 策略，以降低嚴重急性惡化與氣喘相關死亡的風險。"
+      },
+      {
+        prompt:
+          "58 歲男性，建築業現場工程師，氣喘病史 10 年。近 3 個月夜間症狀每週發作 2-3 次、爬一層樓即明顯喘鳴；過去 1 年因急性惡化已兩度回診加開口服類固醇。工作環境長期暴露於粉塵中；認知正常、手部協調中等、吸氣流速足夠。藥單上目前僅有藍色的短效支氣管擴張劑（SABA）。",
+        options: [
+          "僅加用每日 SAMA 即可",
+          "規律維持性 ICS/LABA（必要時可採 MART 策略），並安排吸入技巧再教育",
+          "改成單用 LABA 進行長期控制",
+          "加開全身性類固醇長期口服"
+        ],
+        answer: 1,
+        advice:
+          "GINA Step 3-4 以 ICS/LABA 維持治療為核心，可依病況考慮 MART；同時必須持續監測控制度、惡化風險與裝置使用技巧。"
+      },
+      {
+        prompt:
+          "63 歲女性，重度氣喘 10 年，已規律使用中高劑量 ICS/LABA 仍控制不佳，過去 1 年因急性惡化進急診 3 次。藥師於回診評估時發現，她使用乾粉吸入器（DPI）時幾乎吸不到應有的藥粉量，肺功能與吸氣流速測試亦偏低；手部協調尚可，但體力明顯下降。胸腔科正在考慮加成治療。",
+        options: [
+          "改成單用 SABA，以避免類固醇副作用",
+          "維持 ICS/LABA 為基礎，評估加上 LAMA 與生物製劑等專科治療；裝置避免使用純 DPI，可改選 SMI 或 MDI + Spacer",
+          "停用所有吸入藥，改以中草藥調理",
+          "改成 LABA + LAMA，不再使用 ICS"
+        ],
+        answer: 1,
+        advice:
+          "GINA Step 5 應維持 ICS/LABA 並考慮加成治療與專科轉介；吸氣流速不足時，應避免使用純 DPI，優先選擇 SMI 或 MDI + Spacer。"
+      },
+      {
+        prompt:
+          "71 歲男性，具有 30 年抽菸史，目前已戒菸。主訴爬一層樓會稍微喘，但日常生活能自理；CAT 6 分、mMRC 1，過去 1 年無急性惡化。胸腔科診斷為 GOLD A 類 COPD；手部協調佳、吸氣流速足夠，目前只在症狀加劇時使用短效藥。",
+        options: [
+          "直接給予三合一 ICS/LABA/LAMA",
+          "以單一長效支氣管擴張劑（LABA 或 LAMA）作為初始治療",
+          "僅以口服類固醇長期維持",
+          "完全不需治療"
+        ],
+        answer: 1,
+        advice:
+          "GOLD A 可先以單一長效支氣管擴張劑作為初始治療，再依後續症狀與急性惡化風險逐步調整。"
+      },
+      {
+        prompt:
+          "67 歲女性，COPD 病史 8 年，幾乎一動就喘、CAT 22 分，過去 1 年因急性惡化於門診治療 1 次，被歸類為 GOLD B。她有輕度退化性關節炎，按壓 MDI 力道偏弱、吸氣流速也偏低，且偶爾忘記服藥時間。家屬希望盡量簡化用藥流程。",
+        options: [
+          "LABA + LAMA 雙長效支氣管擴張，並選用 SMI 或 MDI + Spacer，搭配回示衛教與依從性提醒",
+          "僅按需 SABA，其他治療都不需要",
+          "沿用單一 DPI，不必再評估吸氣流速",
+          "僅使用 ICS 單方控制"
+        ],
+        answer: 0,
+        advice:
+          "GOLD B 以 LABA + LAMA 為治療核心；裝置選擇須同時兼顧手部協調度與吸氣流速，避免使用不適當的 DPI。"
+      },
+      {
+        prompt:
+          "74 歲男性，具有 35 年抽菸史，目前仍未戒菸，慢性咳痰超過 10 年，過去 1 年因 COPD 急性惡化 3 次（含 1 次住院），屬 GOLD E 類。回診抽血顯示嗜酸性球計數約 200 cells/μL；認知正常、手部協調與吸氣流速均尚可。家屬擔心使用 ICS 會增加肺炎風險。",
+        options: [
+          "僅以 SABA 或 SAMA 按需治療",
+          "以 LABA + LAMA 為核心，依嗜酸性球與惡化頻率再評估是否加上 ICS",
+          "直接戒菸即可，不需要長期吸入藥",
+          "僅使用 LABA 單方"
+        ],
+        answer: 1,
+        advice:
+          "GOLD E 以 LABA + LAMA 為治療核心；當嗜酸性球升高或仍頻繁急性惡化時，可再評估加入 ICS，但須衡量肺炎等風險。"
+      },
+      {
+        prompt:
+          "8 歲兒童，過敏性氣喘體質，近 1 個月白天每週喘鳴 2-3 次，上體育課跑兩圈就咳到嘔吐，已影響學業與運動。家長相當擔心類固醇副作用，要求醫師「只開噴一下就會好的藥」。回診評估發現孩子手眼協調差，使用 DPI 時無法用力深吸到位。",
+        options: [
+          "僅給予短效緩解藥，無需 ICS-containing 治療",
+          "採兒童可行之 ICS-containing 策略，並優先使用 MDI + Spacer（必要時加面罩）",
+          "直接固定使用 LABA 單方控制",
+          "改用 DPI，且不再做衛教"
+        ],
+        answer: 1,
+        advice:
+          "兒童氣喘應及早納入 ICS-containing 控制；當協調或吸氣力不足時，MDI + Spacer（必要時加面罩）能有效提高藥物送達肺部的比例。"
+      },
+      {
+        prompt:
+          "11 歲兒童，已規律使用低劑量 ICS 半年，但仍每週夜間咳嗽 1-2 次，半年內因急性惡化看過 1 次急診。學校護理師回報，她操作 DPI 時常忘記先吐氣再吸藥；手部協調尚可、吸氣流速足夠。家長擔心類固醇影響身高，希望停藥觀察。",
+        options: [
+          "立刻停掉 ICS 改觀察",
+          "依步階調整 ICS-containing 強度（可考慮 ICS/LABA），並重訓吸入技巧與依從性",
+          "只額外加抗生素治療",
+          "改為僅夜間使用 SABA"
+        ],
+        answer: 1,
+        advice:
+          "症狀控制不足時，應依步階調整 ICS-containing 治療強度；同時須優先排查並修正吸入技巧與依從性。"
+      },
+      {
+        prompt:
+          "52 歲男性，年輕時為氣喘病人，具有 20 年抽菸史，目前仍未戒菸，近 5 年開始咳痰、活動時喘鳴。半年前因自覺吸藥麻煩、又擔心「類固醇傷身」，便自行停掉維持型藥物；近期活動性喘鳴明顯加劇，已影響工作。肺功能仍呈現氣喘特徵；手部協調普通、吸氣流速不足。",
+        options: [
+          "改以 LABA + LAMA 為主，不再使用 ICS",
+          "維持以 ICS-containing 治療為基礎（如 ICS/LABA ± LAMA），裝置改為 SMI 或 MDI + Spacer，並加強衛教",
+          "僅以短效藥按需使用",
+          "沿用 DPI，並忽略吸氣流速不足的問題"
+        ],
+        answer: 1,
+        advice:
+          "具氣喘特徵的患者應保留 ICS-containing 為治療基礎；同時須依吸氣流速不足，調整裝置的選擇。"
+      },
+      {
+        prompt:
+          "6 歲兒童，氣喘體質，半夜由家屬送進急診，呈現明顯喘鳴、SpO₂ 92%、活動受限，且完全無法配合按壓 MDI 的時序。值班醫師正討論短期急救與後續維持藥的給藥方式。家屬手部協調佳，但孩子完全無法配合 DPI 所需的深吸動作。",
+        options: [
+          "急性期給予 Nebulizer 噴霧式支氣管擴張劑；穩定後維持以 MDI + Spacer（含面罩），並持續 ICS-containing 控制策略",
+          "維持既有 MDI 單用，不需加任何輔助器",
+          "改成單用 DPI，不再評估吸氣流速",
+          "先停藥觀察 1 個月再說"
+        ],
+        answer: 0,
+        advice:
+          "急性氣喘合併嚴重協調不足者，可暫以噴霧治療進行搶救；穩定後改用 MDI + Spacer（必要時加面罩），並持續 ICS-containing 維持治療。"
+      }
+    ];
+
+    function shuffleArray(arr) {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    const simulationOrder = shuffleArray(simulationCases.map((_, i) => i));
+    let simulationPointer = 0;
+    let currentSimulation = null;
+
+    function renderSimulationCase() {
+      const caseEl = document.getElementById("sim-case");
+      const formEl = document.getElementById("sim-form");
+      const feedbackEl = document.getElementById("sim-feedback");
+      const nextBtn = document.getElementById("sim-next");
+      if (!caseEl || !formEl || !feedbackEl || !nextBtn) return;
+
+      if (simulationPointer >= simulationOrder.length) {
+        caseEl.innerHTML = `<p><strong>已完成 10 題實境模擬。</strong>可重新整理頁面以再次挑戰。</p>`;
+        formEl.innerHTML = "";
+        feedbackEl.textContent = "";
+        nextBtn.style.display = "none";
+        return;
+      }
+
+      currentSimulation = simulationCases[simulationOrder[simulationPointer]];
+      const cleanedPrompt = currentSimulation.prompt.replace(/【(?:成人|兒童)情境\s*\d+】\s*/u, "");
+      caseEl.innerHTML = `<p><strong>情境 ${simulationPointer + 1} / 10：</strong>${cleanedPrompt}</p>`;
+      formEl.innerHTML = currentSimulation.options
+        .map(
+          (opt, idx) => `
+            <label>
+              <input type="radio" name="sim-choice" value="${idx}" />
+              ${opt}
+            </label>`
+        )
+        .join("");
+      feedbackEl.textContent = "";
+      nextBtn.style.display = "none";
+    }
+
+    function submitSimulation() {
+      const formEl = document.getElementById("sim-form");
+      const feedbackEl = document.getElementById("sim-feedback");
+      const nextBtn = document.getElementById("sim-next");
+      if (!formEl || !feedbackEl || !nextBtn || !currentSimulation) return;
+      const selected = formEl.querySelector("input[name='sim-choice']:checked");
+      if (!selected) {
+        feedbackEl.textContent = "請先選擇一個處置策略再送出。";
+        return;
+      }
+      const picked = Number(selected.value);
+      const isCorrect = picked === currentSimulation.answer;
+      const prefix = isCorrect ? "判斷正確。" : "此題判斷可再調整。";
+      feedbackEl.innerHTML = `
+        <strong>${prefix}</strong><br/>
+        建議方案：${currentSimulation.options[currentSimulation.answer]}<br/>
+        建議理由：${currentSimulation.advice}
+      `;
+      nextBtn.style.display = "inline-block";
+    }
+
+    function nextSimulation() {
+      simulationPointer += 1;
+      renderSimulationCase();
+    }
+
+    const simSubmitBtn = document.getElementById("sim-submit");
+    if (simSubmitBtn) simSubmitBtn.addEventListener("click", submitSimulation);
+    const simNextBtn = document.getElementById("sim-next");
+    if (simNextBtn) simNextBtn.addEventListener("click", nextSimulation);
+    renderSimulationCase();
+
+    const quizBank = [
+      { type: "藥理", q: "SABA 的主要藥效維持時間約為多久？", options: ["1-2 小時", "4-6 小時", "8-12 小時", "24 小時"], answer: 1 },
+      { type: "藥理", q: "下列何者「不」屬於 SABA？", options: ["Salbutamol", "Fenoterol", "Tiotropium", "Terbutaline"], answer: 2 },
+      { type: "藥理", q: "SAMA 在氣道平滑肌上的主要作用機轉為？", options: ["阻斷 M3 muscarinic receptors", "活化 beta2 受體", "結合細胞內 NR3C1 受體", "抑制白三烯素的生成"], answer: 0 },
+      { type: "藥理", q: "氣喘病人若使用 LABA，下列觀念何者正確？", options: ["可單獨長期使用", "僅在急性發作時使用", "應合併 ICS-containing 治療", "僅限口服使用"], answer: 2 },
+      { type: "藥理", q: "下列何者「不」屬於 LAMA？", options: ["Tiotropium", "Glycopyrronium", "Umeclidinium", "Formoterol"], answer: 3 },
+      { type: "藥理", q: "ICS 最常見的局部副作用為？", options: ["便祕與尿滯留", "鵝口瘡與聲音沙啞", "嚴重腎衰竭", "高燒與黃疸"], answer: 1 },
+      { type: "藥理", q: "使用含 ICS 製劑後，最重要的衛教是什麼？", options: ["立即平躺 30 分鐘", "大量喝冰水", "漱口並將水吐掉", "當天停藥"], answer: 2 },
+      { type: "分類", q: "下列何者屬於 LABA + LAMA 複方？", options: ["Symbicort", "Seretide", "Anoro", "Flixotide"], answer: 2 },
+      { type: "分類", q: "下列何者屬於 LABA + ICS 複方？", options: ["Relvar", "Spiriva", "Incruse", "Atrovent"], answer: 0 },
+      { type: "分類", q: "下列何者屬於 LABA + LAMA + ICS 三合一？", options: ["Bretztri", "Duasma", "Symbicort", "Onbrez"], answer: 0 },
+      { type: "分類", q: "下列何者屬於 SABA + SAMA 複方？", options: ["Berodual", "Symbicort", "Anoro", "Foster"], answer: 0 },
+      { type: "分類", q: "Bevespi 所屬的藥物組合為何？", options: ["LABA + LAMA", "LABA + ICS", "SABA + SAMA", "LAMA 單方"], answer: 0 },
+      { type: "分類", q: "Trelegy 所屬的藥物組合為何？", options: ["LABA + ICS", "LABA + LAMA + ICS", "SABA + SAMA", "ICS 單方"], answer: 1 },
+      { type: "吸入器使用方法", q: "使用 MDI 時，按壓與吸氣應如何配合？", options: ["先按壓再閉氣", "同時按壓並慢而深吸", "快速連按兩次", "只需按壓，不需吸氣"], answer: 1 },
+      { type: "吸入器使用方法", q: "使用 MDI 吸入藥物後，建議閉氣多久？", options: ["1 秒", "3 秒", "約 10 秒", "30 秒"], answer: 2 },
+      { type: "吸入器使用方法", q: "MDI 若需給予第 2 劑，建議間隔多久再重複？", options: ["不需間隔", "5 秒", "30-60 秒", "5 分鐘"], answer: 2 },
+      { type: "吸入器使用方法", q: "DPI 最關鍵的吸入方式為何？", options: ["慢吐快吸", "用力且深吸", "屏住呼吸不吸氣", "鼻吸口吐"], answer: 1 },
+      { type: "吸入器使用方法", q: "使用 DPI 時應「避免」下列何者？", options: ["先吐氣再吸藥", "對著吸嘴吐氣", "雙唇緊密包覆", "用力且深吸"], answer: 1 },
+      { type: "吸入器使用方法", q: "SMI 的日常給藥操作口訣為何？", options: ["Shake-Press-Breathe", "Turn-Open-Press", "Load-Close-Hold", "Open-Shake-Press"], answer: 1 },
+      { type: "吸入器使用方法", q: "SMI 在日常給藥前，是否需要搖晃？", options: ["需要，每次都要", "不需要", "僅在夜間需要", "僅在兒童使用時需要"], answer: 1 },
+      { type: "吸入器使用方法", q: "噴霧治療（Nebulizer / SVN）的理想藥液量為？", options: ["0.5-1 mL", "4-5 mL", "10-20 mL", "30 mL"], answer: 1 },
+      { type: "吸入器使用方法", q: "噴霧治療理想的驅動氣流速率為？", options: ["1-2 L/min", "6-10 L/min", "15-20 L/min", "25 L/min 以上"], answer: 1 },
+      { type: "整合題", q: "若病人無法達到 DPI 所需的吸氣流速，較適合改用何者？", options: ["MDI + Spacer 或 SMI", "停用所有吸入器", "僅使用口服 SABA", "繼續沿用同一支 DPI"], answer: 0 },
+      { type: "整合題", q: "在氣喘治療中，僅依賴 SABA 而未搭配 ICS-containing 治療，最重要的風險為何？", options: ["完全無風險", "可能增加嚴重急性發作與氣喘相關死亡的風險", "僅造成輕微頭痛", "僅影響身高發育"], answer: 1 },
+      { type: "整合題", q: "兒童氣喘患者若手部協調不足、無法配合 DPI，最適合的吸入裝置為何？", options: ["僅使用單支 MDI，不加輔助器", "MDI + Spacer（必要時加面罩）", "改用單劑量膠囊型 DPI", "改用多劑量型 DPI"], answer: 1 },
+      { type: "整合題", q: "COPD 急性惡化時使用噴霧治療，下列考量何者正確？", options: ["一律以純氧驅動", "優先以空氣驅動以避免 PaCO₂ 升高，但血氧偏低時改以氧氣驅動", "完全不可使用噴霧治療", "驅動氣體種類不重要"], answer: 1 }
+    ];
+
+    const QUIZ_COUNT = 5;
+    function buildQuizTypePlan() {
+      const extraType = Math.random() < 0.5 ? "藥理" : "吸入器使用方法";
+      return [
+        { type: "藥理", count: extraType === "藥理" ? 2 : 1 },
+        { type: "分類", count: 1 },
+        { type: "吸入器使用方法", count: extraType === "吸入器使用方法" ? 2 : 1 },
+        { type: "整合題", count: 1 }
+      ];
+    }
+    let currentQuiz = [];
+
+    function renderQuiz() {
+      const quizForm = document.getElementById("quiz-form");
+      const result = document.getElementById("quiz-result");
+      if (!quizForm || !result) return;
+      const picked = [];
+      buildQuizTypePlan().forEach(({ type, count }) => {
+        const pool = quizBank.filter((q) => q.type === type);
+        picked.push(...shuffleArray(pool).slice(0, count));
+      });
+      currentQuiz = shuffleArray(picked).slice(0, QUIZ_COUNT);
+      quizForm.innerHTML = currentQuiz
+        .map((item, idx) => {
+          const optionsHtml = item.options
+            .map(
+              (opt, optIdx) => `
+                <label>
+                  <input type="radio" name="q${idx}" value="${optIdx}" />
+                  ${opt}
+                </label>`
+            )
+            .join("");
+          return `
+            <div class="quiz-item">
+              <p>${idx + 1}. ${item.q}</p>
+              <div class="quiz-options">${optionsHtml}</div>
+              <div class="quiz-feedback" id="quiz-feedback-${idx}"></div>
+            </div>`;
+        })
+        .join("");
+      result.textContent = "";
+    }
+
+    function gradeQuiz() {
+      const quizForm = document.getElementById("quiz-form");
+      const result = document.getElementById("quiz-result");
+      if (!quizForm || !result) return;
+      const unanswered = [];
+      currentQuiz.forEach((item, idx) => {
+        const selected = quizForm.querySelector(`input[name="q${idx}"]:checked`);
+        const feedbackEl = quizForm.querySelector(`#quiz-feedback-${idx}`);
+        if (!selected) unanswered.push(idx + 1);
+        if (feedbackEl) feedbackEl.textContent = "";
+      });
+
+      if (unanswered.length > 0) {
+        const hint = `尚有 ${unanswered.length} 題未作答（第 ${unanswered.join("、")} 題），請完成所有題目後再送出。`;
+        result.textContent = hint;
+        window.alert(hint);
+        return;
+      }
+
+      let score = 0;
+      currentQuiz.forEach((item, idx) => {
+        const selected = quizForm.querySelector(`input[name="q${idx}"]:checked`);
+        const feedbackEl = quizForm.querySelector(`#quiz-feedback-${idx}`);
+        const picked = Number(selected.value);
+        const isCorrect = picked === item.answer;
+        if (isCorrect) score += 1;
+        if (feedbackEl) {
+          feedbackEl.className = `quiz-feedback ${isCorrect ? "correct" : "incorrect"}`;
+          feedbackEl.textContent = isCorrect
+            ? `答對：${item.options[item.answer]}`
+            : `答錯：您選擇的是「${item.options[picked]}」，正解為「${item.options[item.answer]}」。`;
+        }
+      });
+      result.textContent = `測驗完成，您的成績：${score} / ${currentQuiz.length}。`;
+    }
+
+    const submitBtn = document.getElementById("quiz-submit");
+    if (submitBtn) submitBtn.addEventListener("click", gradeQuiz);
+
+    const quizSection = document.getElementById("section-quiz");
+    const quizIntro = document.getElementById("quiz-intro");
+    const quizRunner = document.getElementById("quiz-runner");
+    const quizStartBtn = document.getElementById("quiz-start");
+    const quizExitBtn = document.getElementById("quiz-exit");
+    const quizSiblingSections = Array.from(
+      document.querySelectorAll(".wrap > section")
+    ).filter((sec) => sec !== quizSection);
+
+    function enterQuizFocus() {
+      quizSiblingSections.forEach((sec) => {
+        sec.dataset.prevDisplay = sec.style.display;
+        sec.style.display = "none";
+      });
+      if (quizIntro) quizIntro.hidden = true;
+      if (quizRunner) quizRunner.hidden = false;
+      renderQuiz();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function exitQuizFocus() {
+      quizSiblingSections.forEach((sec) => {
+        sec.style.display = sec.dataset.prevDisplay || "";
+        delete sec.dataset.prevDisplay;
+      });
+      if (quizRunner) quizRunner.hidden = true;
+      if (quizIntro) quizIntro.hidden = false;
+      const quizForm = document.getElementById("quiz-form");
+      const result = document.getElementById("quiz-result");
+      if (quizForm) quizForm.innerHTML = "";
+      if (result) result.textContent = "";
+      currentQuiz = [];
+      if (quizSection) {
+        quizSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    if (quizStartBtn) quizStartBtn.addEventListener("click", enterQuizFocus);
+    if (quizExitBtn) quizExitBtn.addEventListener("click", exitQuizFocus);
+
+    const atlasCards = [
+      { row: "SABA", file: "Ventolin.png", tradeEn: "Ventolin", tradeZh: "泛得林", generic: "Salbutamol / Albuterol", pil: "https://mcp.fda.gov.tw/im_detail_1/%E8%A1%9B%E7%BD%B2%E8%97%A5%E8%BC%B8%E5%AD%97%E7%AC%AC017528%E8%99%9F" },
+      { row: "SABA", file: "Berotec.png", tradeEn: "Berotec", tradeZh: "備勞喘", generic: "Fenoterol", pil: "https://mcp.fda.gov.tw/im_detail_pdf/%E8%A1%9B%E7%BD%B2%E8%97%A5%E8%BC%B8%E5%AD%97%E7%AC%AC023074%E8%99%9F" },
+      { row: "SABA", file: "Butanyl_nebulizer.png", tradeEn: "Butanyl", tradeZh: "必坦寧", generic: "Terbutaline", pil: "https://mcp.fda.gov.tw/im_detail_pdf/%E8%A1%9B%E7%BD%B2%E8%97%A5%E8%A3%BD%E5%AD%97%E7%AC%AC043735%E8%99%9F" },
+      { row: "SAMA", file: "Atrovent_Nebulizer.png", tradeEn: "Atrovent", tradeZh: "定喘樂", generic: "Ipratropium", pil: "https://mcp.fda.gov.tw/im_detail_pdf/%E8%A1%9B%E7%BD%B2%E8%97%A5%E8%BC%B8%E5%AD%97%E7%AC%AC018863%E8%99%9F" },
+      { row: "LABA", file: "Onbrez.png", tradeEn: "Onbrez", tradeZh: "昂舒", generic: "Indacaterol", pil: "https://mcp.fda.gov.tw/im_detail_pdf/%E8%A1%9B%E7%BD%B2%E8%97%A5%E8%BC%B8%E5%AD%97%E7%AC%AC025282%E8%99%9F" },
+      { row: "LABA", file: "Striverdi.png", tradeEn: "Striverdi", tradeZh: "適維樂", generic: "Olodaterol", pil: "https://mcp.fda.gov.tw/im_detail_1/%E8%A1%9B%E9%83%A8%E8%97%A5%E8%BC%B8%E5%AD%97%E7%AC%AC026292%E8%99%9F" },
+      { row: "LAMA", file: "Spiriva.png", tradeEn: "Spiriva", tradeZh: "適喘樂", generic: "Tiotropium", pil: "https://mcp.fda.gov.tw/im_detail_1/%E8%A1%9B%E7%BD%B2%E8%97%A5%E8%BC%B8%E5%AD%97%E7%AC%AC025033%E8%99%9F" },
+      { row: "LAMA", file: "Incruse.png", tradeEn: "Incruse", tradeZh: "英克賜", generic: "Umeclidinium", pil: "https://mcp.fda.gov.tw/im_detail_1/%E8%A1%9B%E9%83%A8%E8%97%A5%E8%BC%B8%E5%AD%97%E7%AC%AC026500%E8%99%9F" },
+      { row: "ICS", file: "Duasma.png", tradeEn: "Duasma", tradeZh: "帝舒滿", generic: "Budesonide", pil: "https://mcp.fda.gov.tw/im_detail_pdf/%E8%A1%9B%E7%BD%B2%E8%97%A5%E8%A3%BD%E5%AD%97%E7%AC%AC057770%E8%99%9F" },
+      { row: "ICS", file: "Flixotide.png", tradeEn: "Flixotide", tradeZh: "輔舒酮", generic: "Fluticasone propionate", pil: "https://mcp.fda.gov.tw/im_detail_pdf/%E8%A1%9B%E7%BD%B2%E8%97%A5%E8%BC%B8%E5%AD%97%E7%AC%AC023755%E8%99%9F" },
+      { row: "ICS", file: "Alvesco.png", tradeEn: "Alvesco", tradeZh: "保衛康", generic: "Ciclesonide", pil: "https://mcp.fda.gov.tw/im_detail_pdf/%E8%A1%9B%E7%BD%B2%E8%97%A5%E8%BC%B8%E5%AD%97%E7%AC%AC024786%E8%99%9F" },
+      { row: "SABA + SAMA", file: "Combivent_nebulizer.png", tradeEn: "Combivent", tradeZh: "冠喘衛", generic: "Salbutamol + Ipratropium", pil: "https://mcp.fda.gov.tw/im_detail_pdf/%E8%A1%9B%E7%BD%B2%E8%97%A5%E8%BC%B8%E5%AD%97%E7%AC%AC023357%E8%99%9F" },
+      { row: "SABA + SAMA", file: "Berodual.png", tradeEn: "Berodual", tradeZh: "備喘全", generic: "Fenoterol + Ipratropium", pil: "https://mcp.fda.gov.tw/im_detail_pdf/%E8%A1%9B%E7%BD%B2%E8%97%A5%E8%BC%B8%E5%AD%97%E7%AC%AC023473%E8%99%9F" },
+      { row: "LABA + LAMA", file: "Anoro.png", tradeEn: "Anoro", tradeZh: "安肺樂", generic: "Vilanterol + Umeclidinium", pil: "https://mcp.fda.gov.tw/im_detail_1/%E8%A1%9B%E9%83%A8%E8%97%A5%E8%BC%B8%E5%AD%97%E7%AC%AC026315%E8%99%9F" },
+      { row: "LABA + LAMA", file: "Spiolto.png", tradeEn: "Spiolto", tradeZh: "適倍樂", generic: "Olodaterol + Tiotropium", pil: "https://mcp.fda.gov.tw/im_detail_pdf/%E8%A1%9B%E9%83%A8%E8%97%A5%E8%BC%B8%E5%AD%97%E7%AC%AC026735%E8%99%9F" },
+      { row: "LABA + LAMA", file: "Ultibro.png", tradeEn: "Ultibro", tradeZh: "昂帝博", generic: "Indacaterol + Glycopyrronium", pil: "https://mcp.fda.gov.tw/im_detail_1/%E8%A1%9B%E9%83%A8%E8%97%A5%E8%BC%B8%E5%AD%97%E7%AC%AC026301%E8%99%9F" },
+      { row: "LABA + LAMA", file: "Bevespi.png", tradeEn: "Bevespi", tradeZh: "必肺宜", generic: "Formoterol + Glycopyrronium", pil: "https://mcp.fda.gov.tw/im_detail_pdf/%E8%A1%9B%E9%83%A8%E8%97%A5%E8%BC%B8%E5%AD%97%E7%AC%AC027524%E8%99%9F" },
+      { row: "LABA + ICS", file: "Symbicort.png", tradeEn: "Symbicort", tradeZh: "吸必擴", generic: "Formoterol + Budesonide", pil: "https://mcp.fda.gov.tw/im_detail_1/%E8%A1%9B%E7%BD%B2%E8%97%A5%E8%BC%B8%E5%AD%97%E7%AC%AC023265%E8%99%9F" },
+      { row: "LABA + ICS", file: "Seretide.png", tradeEn: "Seretide", tradeZh: "使肺泰", generic: "Salmeterol + Fluticasone propionate", pil: "https://mcp.fda.gov.tw/im_detail_pdf/%E8%A1%9B%E7%BD%B2%E8%97%A5%E8%BC%B8%E5%AD%97%E7%AC%AC024849%E8%99%9F" },
+      { row: "LABA + ICS", file: "Relvar.png", tradeEn: "Relvar", tradeZh: "潤娃", generic: "Vilanterol + Fluticasone furoate", pil: "https://mcp.fda.gov.tw/im_detail_1/%E8%A1%9B%E9%83%A8%E8%97%A5%E8%BC%B8%E5%AD%97%E7%AC%AC026318%E8%99%9F" },
+      { row: "LABA + ICS", file: "Foster.png", tradeEn: "Foster", tradeZh: "肺舒坦", generic: "Formoterol + Beclometasone", pil: "https://mcp.fda.gov.tw/im_detail_pdf/%E8%A1%9B%E7%BD%B2%E8%97%A5%E8%BC%B8%E5%AD%97%E7%AC%AC025092%E8%99%9F" },
+      { row: "LABA + LAMA + ICS", file: "Trelegy.png", tradeEn: "Trelegy", tradeZh: "肺樂喜", generic: "Vilanterol + Umeclidinium + Fluticasone furoate", pil: "https://mcp.fda.gov.tw/im_detail_1/%E8%A1%9B%E9%83%A8%E8%97%A5%E8%BC%B8%E5%AD%97%E7%AC%AC027395%E8%99%9F" },
+      { row: "LABA + LAMA + ICS", file: "Bretztri.png", tradeEn: "Bretztri", tradeZh: "必肺暢", generic: "Formoterol + Glycopyrronium + Budesonide", pil: "https://mcp.fda.gov.tw/im_detail_1/%E8%A1%9B%E9%83%A8%E8%97%A5%E8%BC%B8%E5%AD%97%E7%AC%AC028183%E8%99%9F" },
+      { row: "LABA + LAMA + ICS", file: "Trimbow.png", tradeEn: "Trimbow", tradeZh: "喘寶", generic: "Formoterol + Glycopyrronium + Beclometasone", pil: "https://mcp.fda.gov.tw/im_detail_1/%E8%A1%9B%E9%83%A8%E8%97%A5%E8%BC%B8%E5%AD%97%E7%AC%AC028490%E8%99%9F" },
+      { row: "LABA + LAMA + ICS", file: "Enerzair.png", tradeEn: "Enerzair", tradeZh: "艾能舒", generic: "Indacaterol + Glycopyrronium + Mometasone", pil: "https://mcp.fda.gov.tw/im_detail_pdf/%E8%A1%9B%E9%83%A8%E8%97%A5%E8%BC%B8%E5%AD%97%E7%AC%AC028048%E8%99%9F" }
+    ];
+
+    function atlasCardHtml(c) {
+      const ultraLaba =
+        c.generic.includes("Indacaterol") || c.generic.includes("Olodaterol");
+      const ultraBadge = ultraLaba
+        ? `<span class="ultra-laba-badge">Ultra-LABA</span>`
+        : "";
+      const ariaUltra = ultraLaba ? "含 Ultra-LABA 成分，" : "";
+      const pilHtml = c.pil
+        ? `<p class="flip-back-pil"><a href="${c.pil}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();">仿單連結</a></p>`
+        : "";
+      const genericHtml = c.generic.replace(/\s\+\s/g, "<br/>+ ");
+      return `
+        <div class="flip-card" role="button" tabindex="0" aria-pressed="false" aria-label="${c.tradeEn}（${c.tradeZh}），${ariaUltra}點擊或按 Enter 翻面">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="img-wrap">
+                <img src="藥物/${c.file}" alt="${c.tradeEn}（${c.tradeZh}）" loading="lazy" />
+              </div>
+              <p class="trade-caption"><span class="trade-line trade-en">${c.tradeEn}</span><span class="trade-line trade-zh">${c.tradeZh}</span></p>
+              ${ultraBadge}
+            </div>
+            <div class="flip-back">
+              <p class="flip-back-generic"><strong>${genericHtml}</strong></p>
+              ${pilHtml}
+            </div>
+          </div>
+        </div>`;
+    }
+
+    function wireFlipCards(root) {
+      root.querySelectorAll(".flip-card").forEach((el) => {
+        el.addEventListener("click", () => {
+          const on = el.classList.toggle("is-flipped");
+          el.setAttribute("aria-pressed", String(on));
+        });
+        el.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            const on = el.classList.toggle("is-flipped");
+            el.setAttribute("aria-pressed", String(on));
+          }
+        });
+      });
+    }
+
+    const atlasSection = document.getElementById("section-types-atlas");
+    if (atlasSection) {
+      const byRow = {};
+      atlasCards.forEach((c) => {
+        if (!byRow[c.row]) byRow[c.row] = [];
+        byRow[c.row].push(c);
+      });
+      atlasSection.querySelectorAll(".atlas-cell-grid[data-atlas-row]").forEach((cell) => {
+        const key = cell.getAttribute("data-atlas-row");
+        const list = byRow[key] || [];
+        cell.innerHTML = list.map(atlasCardHtml).join("");
+      });
+      wireFlipCards(atlasSection);
+    }
+  </script>
+</body>
+</html>
