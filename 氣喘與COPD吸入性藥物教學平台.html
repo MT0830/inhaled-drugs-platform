@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
@@ -147,6 +147,22 @@
     }
     .tab-panel ul li {
       text-indent: 0;
+    }
+    .tab-panel ol.step-list {
+      margin: 6px 0;
+      padding-left: 1.9em;
+      list-style-position: outside;
+      text-indent: 0;
+    }
+    .tab-panel ol.step-list li {
+      margin: 6px 0;
+      padding-left: 0.25em;
+      text-indent: 0;
+      line-height: 1.65;
+    }
+    .tab-panel ol.step-list li::marker {
+      color: var(--text);
+      font-weight: 400;
     }
     .med-table {
       table-layout: fixed;
@@ -537,18 +553,22 @@
       <div id="panel-pmdi" class="tab-panel" role="tabpanel">
         <h3>定量噴霧吸入器（MDI）</h3>
         <p class="panel-subtitle">使用步驟</p>
-        <p>1. <strong>準備與搖晃：</strong>打開帽蓋並直立持握吸入器；使用前回溫，並搖晃 3-5 秒使藥物分散均勻。</p>
-        <p>2. <strong>先吐氣：</strong>避開吸嘴，先緩慢吐氣至接近吐盡。</p>
-        <p>3. <strong>含住吸嘴：</strong>雙唇緊密包覆吸嘴，但勿用牙齒咬住。</p>
-        <p>4. <strong>同步按壓與慢深吸：</strong>開始吸氣的同時按壓 1 次，持續<strong>慢而深吸</strong>到吸飽為止。</p>
-        <p>5. <strong>閉氣與吐氣：</strong>移開吸入器後<strong>閉氣約 10 秒</strong>，再緩慢吐氣。</p>
-        <p>6. <strong>需用 Spacer 時：</strong>將 MDI 接上 Spacer，按壓 1 劑後採「正常呼吸 5-10 次」或「單次深吸後<strong>閉氣約 10 秒</strong>」。</p>
+        <ol class="step-list">
+          <li><strong>準備與搖晃：</strong>打開帽蓋並直立持握吸入器；使用前回溫，並搖晃 3-5 秒使藥物分散均勻。</li>
+          <li><strong>先吐氣：</strong>避開吸嘴，先緩慢吐氣至接近吐盡。</li>
+          <li><strong>含住吸嘴：</strong>雙唇緊密包覆吸嘴，但勿用牙齒咬住。</li>
+          <li><strong>同步按壓與慢深吸：</strong>開始吸氣的同時按壓 1 次，持續<strong>慢而深吸</strong>到吸飽為止。</li>
+          <li><strong>閉氣與吐氣：</strong>移開吸入器後<strong>閉氣約 10 秒</strong>，再緩慢吐氣。</li>
+          <li><strong>需用 Spacer 時：</strong>將 MDI 接上 Spacer，按壓 1 劑後採「正常呼吸 5-10 次」或「單次深吸後<strong>閉氣約 10 秒</strong>」。</li>
+        </ol>
 
         <p class="panel-subtitle">注意事項</p>
-        <p>1. <strong>多劑量間隔：</strong>若需第 2 劑，請間隔 30-60 秒後再重複一次完整步驟。</p>
-        <p>2. <strong>協調性檢查：</strong>若按壓時可見藥霧自口中漏出，代表協調不佳，建議改用 Spacer。</p>
-        <p>3. <strong>含 ICS 後漱口：</strong>使用含吸入型類固醇的製劑後，務必漱口並吐掉，以降低局部副作用。</p>
-        <p>4. <strong>器材保養：</strong>MDI 外殼應定期擦拭、隨手蓋帽，並避光乾燥保存；塑膠 Spacer 清潔後不沖水、自然風乾，以減少靜電累積。</p>
+        <ol class="step-list">
+          <li><strong>多劑量間隔：</strong>若需第 2 劑，請間隔 30-60 秒後再重複一次完整步驟。</li>
+          <li><strong>協調性檢查：</strong>若按壓時可見藥霧自口中漏出，代表協調不佳，建議改用 Spacer。</li>
+          <li><strong>含 ICS 後漱口：</strong>使用含吸入型類固醇的製劑後，務必漱口並吐掉，以降低局部副作用。</li>
+          <li><strong>器材保養：</strong>MDI 外殼應定期擦拭、隨手蓋帽，並避光乾燥保存；塑膠 Spacer 清潔後不沖水、自然風乾，以減少靜電累積。</li>
+        </ol>
 
         <p class="panel-subtitle">操作影片</p>
         <p><a href="https://www.youtube.com/watch?v=iAp9EglX8go" target="_blank" rel="noopener noreferrer">MDI 操作影片</a></p>
@@ -557,18 +577,22 @@
       <div id="panel-dpi" class="tab-panel" role="tabpanel" hidden>
         <h3>乾粉吸入器（DPI）</h3>
         <p class="panel-subtitle">使用步驟</p>
-        <p>1. <strong>打開與裝填：</strong>依裝置型式完成單次劑量準備（推桿、旋轉底座，或將膠囊放入後刺破）。</p>
-        <p>2. <strong>先吐氣：</strong>避開吸嘴，先緩慢深吐氣至接近吐盡。</p>
-        <p>3. <strong>含住吸嘴：</strong>雙唇緊密包覆吸嘴。</p>
-        <p>4. <strong>用力且深長吸氣：</strong>DPI 為吸氣啟動裝置，需<strong>用力且深吸</strong>，才能有效將藥粉帶入下呼吸道。</p>
-        <p>5. <strong>閉氣與吐氣：</strong>吸飽氣後移開吸入器，<strong>閉氣約 10 秒</strong>，再緩慢吐氣。</p>
-        <p>6. <strong>需要時重複：</strong>若處方需第 2 劑，或膠囊仍可見殘粉，請重複以上步驟。</p>
+        <ol class="step-list">
+          <li><strong>打開與裝填：</strong>依裝置型式完成單次劑量準備（推桿、旋轉底座，或將膠囊放入後刺破）。</li>
+          <li><strong>先吐氣：</strong>避開吸嘴，先緩慢深吐氣至接近吐盡。</li>
+          <li><strong>含住吸嘴：</strong>雙唇緊密包覆吸嘴。</li>
+          <li><strong>用力且深長吸氣：</strong>DPI 為吸氣啟動裝置，需<strong>用力且深吸</strong>，才能有效將藥粉帶入下呼吸道。</li>
+          <li><strong>閉氣與吐氣：</strong>吸飽氣後移開吸入器，<strong>閉氣約 10 秒</strong>，再緩慢吐氣。</li>
+          <li><strong>需要時重複：</strong>若處方需第 2 劑，或膠囊仍可見殘粉，請重複以上步驟。</li>
+        </ol>
 
         <p class="panel-subtitle">注意事項</p>
-        <p>1. <strong>裝置種類差異：</strong>常見有多劑量型（如 Turbuhaler、Accuhaler、Ellipta）與單劑量膠囊型（如 Breezhaler），請依各裝置指示操作。</p>
-        <p>2. <strong>評估吸氣流速：</strong>若病人無法用力深吸（如高齡、虛弱或急性發作時），可考慮改用 MDI + Spacer 或 SMI。</p>
-        <p>3. <strong>避免對著吸嘴吐氣：</strong>藥粉容易受潮結塊，吐氣請務必避開吸嘴。</p>
-        <p>4. <strong>保存與漱口：</strong>平時應蓋緊帽蓋、置於陰涼乾燥處保存；含 ICS 的製劑使用後請務必漱口並吐掉。</p>
+        <ol class="step-list">
+          <li><strong>裝置種類差異：</strong>常見有多劑量型（如 Turbuhaler、Accuhaler、Ellipta）與單劑量膠囊型（如 Breezhaler），請依各裝置指示操作。</li>
+          <li><strong>評估吸氣流速：</strong>若病人無法用力深吸（如高齡、虛弱或急性發作時），可考慮改用 MDI + Spacer 或 SMI。</li>
+          <li><strong>避免對著吸嘴吐氣：</strong>藥粉容易受潮結塊，吐氣請務必避開吸嘴。</li>
+          <li><strong>保存與漱口：</strong>平時應蓋緊帽蓋、置於陰涼乾燥處保存；含 ICS 的製劑使用後請務必漱口並吐掉。</li>
+        </ol>
 
         <p class="panel-subtitle">操作影片</p>
         <p><a href="https://youtu.be/yAgaI0A0kBY?si=uc4wE702eANeCc1m" target="_blank" rel="noopener noreferrer">多劑量型 DPI 操作影片</a></p>
@@ -577,18 +601,22 @@
       <div id="panel-smi" class="tab-panel" role="tabpanel" hidden>
         <h3>軟霧吸入器（SMI）</h3>
         <p class="panel-subtitle">使用步驟</p>
-        <p>1. <strong>首次裝填準備：</strong>新機請先完成藥瓶裝填（拔底座、裝入藥瓶、裝回底座）與導藥測試。</p>
-        <p>2. <strong>導藥測試：</strong>依「轉、開、按」重複操作，直到看見白霧後再執行 3 次，才算完成首次準備。</p>
-        <p>3. <strong>日常口訣 T.O.P.：</strong><strong>轉（Turn）</strong>底座半圈至喀聲、<strong>開（Open）</strong>帽蓋、<strong>按（Press）</strong>鍵的同時慢而深吸。</p>
-        <p>4. <strong>吸入動作：</strong>吸嘴含入口後雙唇緊密包覆，並避免遮住兩側通氣孔；按鍵的同時<strong>慢而深吸</strong>到吸飽為止。</p>
-        <p>5. <strong>閉氣與吐氣：</strong>移開吸入器後<strong>閉氣約 10 秒</strong>，再避開吸入器緩慢吐氣。</p>
-        <p>6. <strong>需要時重複：</strong>若處方需第 2 劑，請再重複一次 T.O.P. 完整流程。</p>
+        <ol class="step-list">
+          <li><strong>首次裝填準備：</strong>新機請先完成藥瓶裝填（拔底座、裝入藥瓶、裝回底座）與導藥測試。</li>
+          <li><strong>導藥測試：</strong>依「轉、開、按」重複操作，直到看見白霧後再執行 3 次，才算完成首次準備。</li>
+          <li><strong>日常口訣 T.O.P.：</strong><strong>轉（Turn）</strong>底座半圈至喀聲、<strong>開（Open）</strong>帽蓋、<strong>按（Press）</strong>鍵的同時慢而深吸。</li>
+          <li><strong>吸入動作：</strong>吸嘴含入口後雙唇緊密包覆，並避免遮住兩側通氣孔；按鍵的同時<strong>慢而深吸</strong>到吸飽為止。</li>
+          <li><strong>閉氣與吐氣：</strong>移開吸入器後<strong>閉氣約 10 秒</strong>，再避開吸入器緩慢吐氣。</li>
+          <li><strong>需要時重複：</strong>若處方需第 2 劑，請再重複一次 T.O.P. 完整流程。</li>
+        </ol>
 
         <p class="panel-subtitle">注意事項</p>
-        <p>1. <strong>不可對吸入器吐氣：</strong>吐氣請務必避開吸嘴，以免影響裝置效能。</p>
-        <p>2. <strong>日常給藥不需搖晃：</strong>SMI 與 MDI 不同，平時給藥前無須搖晃。</p>
-        <p>3. <strong>定期清潔：</strong>每週至少 1 次，以微濕布或衛生紙清潔吸嘴與內部金屬區。</p>
-        <p>4. <strong>妥善保存：</strong>不使用時請蓋緊帽蓋，並置於陰涼乾燥處，避免陽光直射。</p>
+        <ol class="step-list">
+          <li><strong>不可對吸入器吐氣：</strong>吐氣請務必避開吸嘴，以免影響裝置效能。</li>
+          <li><strong>日常給藥不需搖晃：</strong>SMI 與 MDI 不同，平時給藥前無須搖晃。</li>
+          <li><strong>定期清潔：</strong>每週至少 1 次，以微濕布或衛生紙清潔吸嘴與內部金屬區。</li>
+          <li><strong>妥善保存：</strong>不使用時請蓋緊帽蓋，並置於陰涼乾燥處，避免陽光直射。</li>
+        </ol>
 
         <p class="panel-subtitle">操作影片</p>
         <p><a href="https://youtu.be/F87ZHHMfFow?si=k65fLHQp71oWdvX-" target="_blank" rel="noopener noreferrer">SMI 操作影片</a></p>
@@ -596,16 +624,20 @@
       <div id="panel-neb" class="tab-panel" role="tabpanel" hidden>
         <h3>噴霧治療（Nebulizer / SVN）</h3>
         <p class="panel-subtitle">使用步驟</p>
-        <p>1. <strong>準備藥液：</strong>將處方液態藥物（必要時併用食鹽水）注入噴霧器藥槽，理想液量為 <strong>4-5 mL</strong>。</p>
-        <p>2. <strong>設定驅動氣流：</strong>接上氣體管路，將氣流速率設為 <strong>6-10 L/min</strong>。</p>
-        <p>3. <strong>選擇介面：</strong>依病人狀況選用<strong>面罩或咬嘴</strong>；正在使用呼吸器者，請將噴霧器接於管路<strong>吸氣端（藍端）</strong>。</p>
-        <p>4. <strong>進行吸入：</strong>請病人維持<strong>平穩呼吸</strong>，持續吸入霧氣；霧化通常需數分鐘，整體給藥時間較一般手持吸入器久。</p>
+        <ol class="step-list">
+          <li><strong>準備藥液：</strong>將處方液態藥物（必要時併用食鹽水）注入噴霧器藥槽，理想液量為 <strong>4-5 mL</strong>。</li>
+          <li><strong>設定驅動氣流：</strong>接上氣體管路，將氣流速率設為 <strong>6-10 L/min</strong>。</li>
+          <li><strong>選擇介面：</strong>依病人狀況選用<strong>面罩或咬嘴</strong>；正在使用呼吸器者，請將噴霧器接於管路<strong>吸氣端（藍端）</strong>。</li>
+          <li><strong>進行吸入：</strong>請病人維持<strong>平穩呼吸</strong>，持續吸入霧氣；霧化通常需數分鐘，整體給藥時間較一般手持吸入器久。</li>
+        </ol>
 
         <p class="panel-subtitle">注意事項</p>
-        <p>1. <strong>驅動氣體選擇：</strong>COPD 急性惡化者優先以<strong>空氣驅動</strong>，以避免氧氣驅動造成 PaCO₂ 升高；若病人血氧明顯偏低，則改以<strong>氧氣驅動</strong>。</p>
-        <p>2. <strong>臉部防護與清潔：</strong>使用 ICS 時建議搭配<strong>咬嘴</strong>，以避免藥霧噴入眼睛；若僅能使用面罩，療程結束後須清潔病人<strong>口鼻周邊的皮膚</strong>。</p>
-        <p>3. <strong>飛沫與感染管制：</strong>過程會將呼吸道病毒微粒散佈至 <strong>≥ 1 公尺</strong>以外；呼吸道傳染病流行期間應避免使用，並遵守<strong>感染管制防護</strong>程序。</p>
-        <p>4. <strong>適用對象：</strong>幼童僅作為<strong>無法有效使用 Spacer</strong> 時的替代方案；急性氣喘亦主要保留給急症照護中<strong>面臨生命危險</strong>的患者。</p>
+        <ol class="step-list">
+          <li><strong>驅動氣體選擇：</strong>COPD 急性惡化者優先以<strong>空氣驅動</strong>，以避免氧氣驅動造成 PaCO₂ 升高；若病人血氧明顯偏低，則改以<strong>氧氣驅動</strong>。</li>
+          <li><strong>臉部防護與清潔：</strong>使用 ICS 時建議搭配<strong>咬嘴</strong>，以避免藥霧噴入眼睛；若僅能使用面罩，療程結束後須清潔病人<strong>口鼻周邊的皮膚</strong>。</li>
+          <li><strong>飛沫與感染管制：</strong>過程會將呼吸道病毒微粒散佈至 <strong>≥ 1 公尺</strong>以外；呼吸道傳染病流行期間應避免使用，並遵守<strong>感染管制防護</strong>程序。</li>
+          <li><strong>適用對象：</strong>幼童僅作為<strong>無法有效使用 Spacer</strong> 時的替代方案；急性氣喘亦主要保留給急症照護中<strong>面臨生命危險</strong>的患者。</li>
+        </ol>
       </div>
     </section>
 
