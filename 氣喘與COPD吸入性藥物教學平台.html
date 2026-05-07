@@ -164,6 +164,36 @@
       color: var(--text);
       font-weight: 400;
     }
+    .video-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 8px;
+    }
+    .video-item {
+      margin: 0;
+    }
+    .video-item figcaption {
+      margin: 0 0 6px;
+      color: #3f5f3f;
+      font-weight: 700;
+    }
+    .video-embed {
+      position: relative;
+      width: 100%;
+      max-width: 560px;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: #000;
+    }
+    .video-embed iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
     .med-table {
       table-layout: fixed;
       width: 100%;
@@ -571,8 +601,20 @@
         </ol>
 
         <p class="panel-subtitle">操作影片</p>
-        <p><a href="https://www.youtube.com/watch?v=iAp9EglX8go" target="_blank" rel="noopener noreferrer">MDI 操作影片</a></p>
-        <p><a href="https://www.youtube.com/watch?v=B26yHhKoiQQ" target="_blank" rel="noopener noreferrer">Spacer 操作影片</a></p>
+        <div class="video-list">
+          <figure class="video-item">
+            <figcaption>MDI 操作影片</figcaption>
+            <div class="video-embed">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/iAp9EglX8go?si=7i6nUQlJMYqy7cSC" title="MDI 操作影片" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+          </figure>
+          <figure class="video-item">
+            <figcaption>Spacer 操作影片</figcaption>
+            <div class="video-embed">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/B26yHhKoiQQ?si=0mwuzUQGg5xxWV36" title="Spacer 操作影片" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+          </figure>
+        </div>
       </div>
       <div id="panel-dpi" class="tab-panel" role="tabpanel" hidden>
         <h3>乾粉吸入器（DPI）</h3>
